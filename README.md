@@ -8,3 +8,6 @@
 #### rdbms client
 
 #### collections
+
+# License
+GNU Lesser General Public License v3.0
