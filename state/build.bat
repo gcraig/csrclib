@@ -1,0 +1,1 @@
+gcc state.h state.c main.c -o main -std=c11 -Wall -O2
