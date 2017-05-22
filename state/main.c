@@ -5,24 +5,31 @@
 
 /*
     gcc state.h state.c main.c -o main -std=c11 -Wall
+    cppcheck, splint
 */
 
 int 
-main(int argc, char **argv)
+main()
 {
-	printf("Hello, world, creating a test State Machine\n");
+	printf("Hello, world!\nCreating a test State Machine.\n");
 
-	/*
-        struct state *s = new_state(char state_name*)  vs.
-        state_t *s = new_state("test");
-    */
+    /* Create the parent start state */
+    state_t *parent = new_parent_state(NULL);
 
-    /* Create the parent start state, name == 0 */
-    state_t *s = new_state(NULL);
+    /* Create a child state of the parent/start state */
+    state_t *child = new_child_state("Ordered", parent);
 
-	printf( "%s\n", s->state_name );
-
-	free_state_machine(s);
-		
-	return(0);
+    printf("States created:\n");
+    printf("%s\n", parent->state_name);
+    
+    printf("%s\n", child->state_name);
+    /* or */
+    /* XXX pointer arithmetic */
+    /* XXX child is not being printed, why? */
+    for (int i=0;i<255;i++)
+    {
+        printf("%s\n", parent->children[i]->state_name);
+    }
+    
+	free_state_machine(parent);
 }

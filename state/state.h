@@ -2,6 +2,7 @@
 #define STATE_H
 
 /*#pragma once*/
+
 #include <stddef.h>
 
 /* Declarations and Initializations */
@@ -14,35 +15,24 @@ struct state
 {
 	char state_name[255]; /* = NULL;*/
 
-    state_t *next_state; 
+    state_t *children[255];
 
+    int chndx;
+
+    state_t *next_state; 
     state_t *prev_state;
 
     state_t **out_states;
-
     state_t **in_states;
 
 };
 
 /* Prototypes */
 
-// struct state *new_state(char *state_name);
-state_t *new_state(char *state_name); /* returns NULL on out of memory */
+state_t *new_parent_state(char *state_name);
 
-int free_state_machine(state_t*); /* goes through entire linked list freeing all memory */
+state_t *new_child_state(char *state_name, state_t *parent); /* returns NULL on out of memory */
+
+void free_state_machine(state_t *s); /* goes through entire linked list freeing all memory */
 
 #endif /* STATE_H */
-
-
-/*
-
-http://stackoverflow.com/questions/10243149/why-is-typedef-struct-foo-foo-considered-harmful
-
-typedef struct
-{
-  //...
-}              t_mytype;
-//...
-t_mytype thing;
-
-*/
