@@ -43,20 +43,25 @@ new_child_state(char *state_name, state_t *parent)
 {
     /* XXX strcmp, chomp? */
     /* XXX create a common function both new state functions call */
-    if (NULL == parent || NULL == state_name || strcmp("", state_name))
-    {
-        return NULL; /* XXX error - how to handle? */
-    }
+//    if (NULL == parent || NULL == state_name || strcmp("", state_name))
+//    {
+//        return NULL; /* XXX error - how to handle? */
+//    }
     
     state_t *child = (state_t *) malloc(sizeof(struct state));
 
 	if (NULL != child) {
 
         /* assign the child to the parent's tracking array */
-        parent->children[parent->chndx++] = child;
+        //parent->children[0] = child;
+        //parent->children[parent->chndx++] = child;
+        //parent->children = ++child;
+        parent->c = child;
         
         /* assign the child's name */
        	strcpy(child->state_name, state_name);
+        printf("%s\n", child->state_name);
+        printf("%s\n", state_name);
 
     } else {
 
