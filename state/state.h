@@ -15,10 +15,9 @@ struct state
 {
 	char state_name[255]; /* = NULL;*/
 
-//    state_t *children[255];
-    state_t *c;
+    state_t *c; /* child state_t */
     
-    int chndx;
+    int chndx; /* child index */
 
     state_t *next_state; 
     state_t *prev_state;
