@@ -2,6 +2,8 @@
 ### CSR Development, Co. - C Library of Functions
 
 #### state machine
+#### graph
+#### file utils
  
 ### TODO: 
 
@@ -12,10 +14,10 @@
 
 # Intention
 1. Learning and improvement
-1. Various projects
-1. Carry over concepts and ideas from other platforms
-1. Embedded
-1. KISS
+2. Various projects
+3. Carry over concepts and ideas from other platforms
+4. Embedded
+5. KISS
 
 # License
 GNU Lesser General Public License v3.0
