@@ -8,24 +8,31 @@
     cppcheck, splint
 */
 
-int 
-main()
+//
+// State Machine Test Harness
+//
+int main()
 {
 	printf("Hello, world!\nCreating a test State Machine.\n");
 
     /* Create the parent start state */
     state_t *parent = new_parent_state(NULL);
+	State *s = new_parent_state(NULL);
 
     /* Create a child state of the parent/start state */
     state_t *child = new_child_state("Ordered", parent);
 
-    printf("States created:\n");
-    printf("parent: 0x%x\n", &parent);
-    printf("child: 0x%x\n", &child);
-    printf("%s\n", parent->state_name);
-    printf("%s\n", child->state_name);
-    printf("%s\n", parent->c);
+    printf("States created\n");
+    printf("Parent           : 0x%x\n", &parent);
+    printf("Child            : 0x%x\n", &child);
+    printf("Parent state name: %s\n", parent->state_name);
+    printf("Child state name : %s\n", child->state_name);
+    printf("Child state      : %s\n", parent->child);
 
+	//
+	// ch_idx
+	//
+	
     /* or */
     /* XXX pointer arithmetic */
     /* XXX child is not being printed, why? */
@@ -34,5 +41,7 @@ main()
 //        printf("%s\n", parent->children[i]->state_name);
     }
     
-	free_state_machine(parent);
+	//free_state(parent);
+	free(child);
+	free(parent);
 }
